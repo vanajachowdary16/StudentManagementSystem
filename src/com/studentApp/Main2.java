@@ -21,25 +21,30 @@ public class Main2 {
 		Student s2 = new Student("uday", 33, "S-2");
 		
 		Student s3= new Student("chinnu", 24, "S-3");
+		Student s4 = new Student("rithu", 25, "S-4");
 		s3.enrollCourse("Dsa");
 		studentlist.add(s1);
 		studentlist.add(s2);
 		studentlist.add(s3);
+		studentlist.add(s4);
 		
 		
 		Student result =findStudentById("S-1");
 		System.out.println("Results: "+result);
+		sortByName();
 	}
 	public static void sortByName() {
-		Comparator<Student> studentNameComparator = new Comparator<Student>() {
-
-			@Override
+		Comparator<Student> studentNameComparator = (o1,o2)-> o1.getName().compareTo(o2.getName());
+		/*
+		 * @Override
 			public int compare(Student o1, Student o2) {
 				
 				return o1.getName().compareTo(o2.getName());
 			}
 			
 		};
+		 */
+		
 		Collections.sort(studentlist, studentNameComparator);
 		System.out.println(studentlist);
 	}
