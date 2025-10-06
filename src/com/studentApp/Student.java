@@ -86,6 +86,18 @@ public class Student {
 					return false;
 		}
 	}
+	public String getName() {
+		return name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public String getStudentId() {
+		return studentId;
+	}
+	public List<String> getCourses() {
+		return courses;
+	}
 	
 	
 	

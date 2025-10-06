@@ -1,6 +1,8 @@
 package com.studentApp;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main2 {
@@ -24,9 +26,41 @@ public class Main2 {
 		studentlist.add(s2);
 		studentlist.add(s3);
 		
+		
+		Student result =findStudentById("S-1");
+		System.out.println("Results: "+result);
 	}
-	public static  void findStudentById(String studentId) {
-		studentlist.stream().filter(x->x.validateAge(0))
+	public static void sortByName() {
+		Comparator<Student> studentNameComparator = new Comparator<Student>() {
+
+			@Override
+			public int compare(Student o1, Student o2) {
+				
+				return o1.getName().compareTo(o2.getName());
+			}
+			
+		};
+		Collections.sort(studentlist, studentNameComparator);
+		System.out.println(studentlist);
+	}
+	
+	public static  Student findStudentById(String studentId) {
+		
+		Student result = null;
+		
+		try{
+			result= studentlist.stream().filter(x->x.getStudentId().equalsIgnoreCase(studentId))
+		
+		.findFirst()
+		.orElseThrow(()-> new RuntimeException("No Data found !!!!"));
+		
+		
+		}catch(RuntimeException e) {
+			
+			System.err.println("Student with ID "+studentId + "not found!!!");
+			
+		}
+		return result;
 		
 	}
 
