@@ -4,12 +4,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main2 {
 	public static List<Student> studentlist = new ArrayList<Student>();
+	private static Scanner scanner;
 	public static void main(String[] args) {
 		System.out.println("***********Student Management System***********");
 		System.out.println("********Welcome**********");
+		
+		
+		
+		
 		Student s1;
 		
 		s1=new Student("kajal", 22, "S-1");
@@ -33,6 +39,7 @@ public class Main2 {
 		System.out.println("Results: "+result);
 		sortByName();
 	}
+	
 	public static void sortByName() {
 		Comparator<Student> studentNameComparator = (o1,o2)-> o1.getName().compareTo(o2.getName());
 		/*
